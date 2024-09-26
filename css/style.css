@@ -61,12 +61,23 @@ img.bannerImg {
 }
 
 /* FILTERS */
-.visually-hidden {
-  visibility: hidden;
-  display: none;
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.filters select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 /* CARD */
+
 .recipesContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -75,6 +86,11 @@ img.bannerImg {
   width: 90%;
   margin: auto;
   margin-bottom: 100px;
+}
+
+.visually-hidden {
+  visibility: hidden;
+  display: none;
 }
 
 .recipe_card {

@@ -23,16 +23,35 @@
         </div>
         <img src="assets/png/banner.png" alt="bannière" class="bannerImg">
     </header>
-    <section class="filters">
-        <h2 class="visually-hidden">Filters</h2>
-    </section>
-    <section class="recipesContainer">
-        <h2 class="visually-hidden">Recipes</h2>
-        <!-- Les cartes des recettes seront injectées ici -->
-    </section>
+    <main>
+        <section class="filters">
+            <select aria-label="Ingrédients">
+                <option value="">Ingrédients</option>
+                <option value="1">Lait de coco</option>
+                <option value="2">Poulet</option>
+            </select>
+
+            <select aria-label="Appareils">
+                <option value="">Appareils</option>
+                <option value="1">Four</option>
+                <option value="2">Micro-ondes</option>
+            </select>
+
+            <select aria-label="Ustensiles">
+                <option value="">Ustensiles</option>
+                <option value="1">Couteau</option>
+                <option value="2">Planche à découper</option>
+            </select>
+        </section>
+        <section class="recipesContainer">
+            <h2 class="visually-hidden">Recipes</h2>
+            <!-- Les cartes des recettes seront injectées ici -->
+        </section>
+    </main>
     <script type="module" src="./script/index.js"></script>
     <script type="module" src="./script/templates/gallery.js"></script>
     <script type="module" src="./script/templates/card.js"></script>
+
 </body>
 
 
