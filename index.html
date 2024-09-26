@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="icon" type="image/png" href="./assets/png/ellipse.png" />
+    <title>Les Petits Plats</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="./" class="navLogo" tabindex="0"><img src="assets/png/logo.png" alt="logo les petits plats"></a>
+        </nav>
+        <h1 class="title">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES</h1>
+        <div class="searchBar">
+            <label for="search"></label>
+            <input type="search" id="search" name="search" placeholder="Recherchez une recette, un ingrédient, etc...">
+            <button class="searchButton"><img src="assets/png/loop.png" alt="bouton de recherche"></button>
+        </div>
+        <img src="assets/png/banner.png" alt="bannière" class="bannerImg">
+    </header>
+    <section class="filters">
+        <h2 class="visually-hidden">Filters</h2>
+    </section>
+    <section class="recipesContainer">
+        <h2 class="visually-hidden">Recipes</h2>
+        <!-- Les cartes des recettes seront injectées ici -->
+    </section>
+    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="./script/templates/gallery.js"></script>
+    <script type="module" src="./script/templates/card.js"></script>
+</body>
+
+
+</html>
