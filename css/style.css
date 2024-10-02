@@ -101,6 +101,15 @@ img.bannerImg {
   margin-right: 16px;
 }
 
+.dropdown-btn i {
+  transition: transform 0.3s ease; /* Transition pour une rotation douce */
+}
+
+/* Rotation de 180 degrés quand le dropdown est actif */
+.dropdown.active .dropdown-btn i {
+  transform: rotate(180deg);
+}
+
 .dropdown-container {
   display: flex;
   gap: 20px;

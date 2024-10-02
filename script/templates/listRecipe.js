@@ -61,10 +61,15 @@ populateDropdown(utensilsDropdown, getUniqueItems("ustensils"));
 // Bascule la visibilité des dropdowns
 [ingredientsDropdown, appliancesDropdown, utensilsDropdown].forEach(
   (dropdown) => {
-    const titleSection = dropdown.querySelector(".dropdown-btn");
-    titleSection.onclick = () => {
-      const content = dropdown.querySelector(".dropdown-content");
+    const button = dropdown.querySelector(".dropdown-btn");
+    const content = dropdown.querySelector(".dropdown-content");
+    const icon = dropdown.querySelector("i");
+
+    button.onclick = () => {
       content.classList.toggle("active"); // Active ou désactive le dropdown
+      icon.style.transform = content.classList.contains("active")
+        ? "rotate(180deg)"
+        : "rotate(0deg)"; // Fait tourner l'icône
     };
   }
 );
