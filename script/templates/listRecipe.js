@@ -1,8 +1,8 @@
 import { recipes } from "../data/recipes.js";
 
-// Function to extract unique items from the recipes
+// Récupère les éléments uniques depuis les recettes
 function getUniqueItems(key) {
-  const items = new Set(); // Use a Set to avoid duplicates
+  const items = new Set(); // Évite les doublons
   recipes.forEach((recipe) => {
     if (key === "ingredients") {
       recipe.ingredients.forEach((ingredientObj) =>
@@ -14,27 +14,49 @@ function getUniqueItems(key) {
       recipe.ustensils.forEach((ustensil) => items.add(ustensil));
     }
   });
-  return [...items]; // Convert Set back to an array
+  return [...items]; // Retourne un tableau
 }
 
-// Function to populate the dropdowns
+// Remplit les dropdowns avec des éléments
 function populateDropdown(dropdownElement, items) {
   const dropdownList = dropdownElement.querySelector(".dropdown-list");
-  dropdownList.innerHTML = ""; // Clear previous list items
+  dropdownList.innerHTML = ""; // Vide la liste
 
   items.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item;
+    li.onclick = () => selectItem(item, dropdownElement); // Gère la sélection
     dropdownList.appendChild(li);
   });
 }
 
-// Getting dropdown elements
+// Gère la sélection d'un élément
+function selectItem(item, dropdownElement) {
+  const selectedItemsContainer =
+    dropdownElement.querySelector(".selected-items");
+  const selectedItem = document.createElement("span");
+  selectedItem.textContent = item;
+  selectedItem.classList.add("selected-item");
+  selectedItemsContainer.appendChild(selectedItem);
+}
+
+// Récupère les éléments des dropdowns
 const ingredientsDropdown = document.querySelector(".dropdown-ingredients");
 const appliancesDropdown = document.querySelector(".dropdown-appareils");
 const utensilsDropdown = document.querySelector(".dropdown-ustensiles");
 
-// Populate the dropdowns
+// Remplit les dropdowns avec les éléments uniques
 populateDropdown(ingredientsDropdown, getUniqueItems("ingredients"));
 populateDropdown(appliancesDropdown, getUniqueItems("appliance"));
 populateDropdown(utensilsDropdown, getUniqueItems("ustensils"));
+
+// Bascule la visibilité des dropdowns
+[ingredientsDropdown, appliancesDropdown, utensilsDropdown].forEach(
+  (dropdown) => {
+    const titleSection = dropdown.querySelector(".dropdown-title-section");
+    titleSection.onclick = () => {
+      const content = dropdown.querySelector(".dropdown-content");
+      content.classList.toggle("active"); // Active ou désactive le dropdown
+    };
+  }
+);
