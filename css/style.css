@@ -132,6 +132,8 @@ img.bannerImg {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
+  max-height: 200px;
+  overflow-y: auto;
   min-width: 200px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -167,6 +169,23 @@ img.bannerImg {
 
 .dropdown-content ul li:hover {
   background-color: #ddd;
+}
+
+/* TAG */
+
+.selected-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.selected-item {
+  background-color: #ffd15b;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
 }
 
 /* CARD */
