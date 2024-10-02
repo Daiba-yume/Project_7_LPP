@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="icon" type="image/png" href="./assets/png/ellipse.png" />
+    <script src="https://kit.fontawesome.com/75b27a2f9b.js" crossorigin="anonymous"></script>
     <title>Les Petits Plats</title>
 </head>
 
@@ -29,34 +30,46 @@
             <div class="dropdown-wrapper">
                 <!-- Dropdown Ingrédients -->
                 <div class="dropdown dropdown-ingredients">
-                    <button class="dropdown-btn">Ingrédients <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="dropdown-btn">
+                        <h1>Ingrédients</h1>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
                     <div class="dropdown-content">
                         <input type="text" placeholder="Rechercher..." class="search-input">
                         <ul class="dropdown-list" id="ingredientsList">
                             <!-- Les ingrédients seront injectés ici -->
                         </ul>
+                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                     </div>
                 </div>
 
                 <!-- Dropdown Appareils -->
                 <div class="dropdown dropdown-appareils">
-                    <button class="dropdown-btn">Appareils <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="dropdown-btn">
+                        <h1>Appareils</h1>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
                     <div class="dropdown-content">
                         <input type="text" placeholder="Rechercher..." class="search-input">
                         <ul class="dropdown-list" id="appliancesList">
                             <!-- Les appareils seront injectés ici -->
                         </ul>
+                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                     </div>
                 </div>
 
                 <!-- Dropdown Ustensiles -->
                 <div class="dropdown dropdown-ustensiles">
-                    <button class="dropdown-btn">Ustensiles <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="dropdown-btn">
+                        <h1>Ustensiles</h1>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
                     <div class="dropdown-content">
                         <input type="text" placeholder="Rechercher..." class="search-input">
                         <ul class="dropdown-list" id="utensilsList">
                             <!-- Les ustensiles seront injectés ici -->
                         </ul>
+                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                     </div>
                 </div>
             </div>

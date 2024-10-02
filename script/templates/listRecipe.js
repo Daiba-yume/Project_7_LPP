@@ -34,10 +34,18 @@ function populateDropdown(dropdownElement, items) {
 function selectItem(item, dropdownElement) {
   const selectedItemsContainer =
     dropdownElement.querySelector(".selected-items");
+
+  // Si le conteneur des éléments sélectionnés n'existe pas, on le crée
+  if (!selectedItemsContainer) {
+    const newContainer = document.createElement("div");
+    newContainer.classList.add("selected-items");
+    dropdownElement.appendChild(newContainer);
+  }
+
   const selectedItem = document.createElement("span");
   selectedItem.textContent = item;
   selectedItem.classList.add("selected-item");
-  selectedItemsContainer.appendChild(selectedItem);
+  dropdownElement.querySelector(".selected-items").appendChild(selectedItem);
 }
 
 // Récupère les éléments des dropdowns
@@ -53,7 +61,7 @@ populateDropdown(utensilsDropdown, getUniqueItems("ustensils"));
 // Bascule la visibilité des dropdowns
 [ingredientsDropdown, appliancesDropdown, utensilsDropdown].forEach(
   (dropdown) => {
-    const titleSection = dropdown.querySelector(".dropdown-title-section");
+    const titleSection = dropdown.querySelector(".dropdown-btn");
     titleSection.onclick = () => {
       const content = dropdown.querySelector(".dropdown-content");
       content.classList.toggle("active"); // Active ou désactive le dropdown
