@@ -27,7 +27,6 @@ header {
   color: #ffd15b;
   text-align: center;
   font-family: "Anton", arial;
-  font-weight: 400;
 }
 
 .searchBar {
@@ -63,17 +62,76 @@ img.bannerImg {
 /* FILTERS */
 
 .filters {
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+
+.dropdown-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
+  justify-content: space-between;
+  width: 53%;
+}
+
+.dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-container {
+  display: flex;
+  gap: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #f3f3f3;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
   padding: 10px;
 }
 
-.filters select {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content input {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-content ul li {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.dropdown-content ul li:hover {
+  background-color: #ddd;
 }
 
 /* CARD */
@@ -130,13 +188,19 @@ img.bannerImg {
 
 .description_title {
   color: #7a7a7a;
-  margin-bottom: 15px;
+  font-size: 12px;
 }
 
 .ingredients_title {
   color: #7a7a7a;
   margin-top: 30px;
   margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.ingredient_title {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .ingredient_text {
@@ -147,5 +211,4 @@ img.bannerImg {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 50px;
-  row-gap: 30px;
 }

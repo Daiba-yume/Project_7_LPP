@@ -21,6 +21,13 @@ export function recipeTemplate(recipe) {
     const recipeCard = document.createElement("article");
     recipeCard.classList = "recipe_card";
 
+    // Création d'une balise pour la durée de préparation (span)
+
+    const recipeDuration = document.createElement("span");
+    recipeDuration.classList = "recipe_duration";
+    recipeDuration.textContent = `${time}min`;
+    recipeCard.appendChild(recipeDuration);
+
     // Création de l'image de la recette
     const recipeImg = document.createElement("img");
     recipeImg.classList = "recipe_img";
@@ -72,13 +79,27 @@ export function recipeTemplate(recipe) {
     recipeIngredientsList.classList = "recipe_ingredients_list";
     recipeIngredients.appendChild(recipeIngredientsList);
 
-    // Ajoute de chaque ingrédient à la liste des ingrédients
+    // Création d'un titre (h5) et d'un paragraphe (p) de descrition pour chaque ingrédient
+
     ingredients.forEach((ingredient) => {
-      const ingredientItem = document.createElement("p");
-      ingredientItem.textContent = `${ingredient.quantity || ""} ${
-        ingredient.unit || ""
-      } ${ingredient.ingredient}`; // Texte de l'ingrédient
-      recipeIngredientsList.appendChild(ingredientItem); // Ajout de l'ingrédient à la liste
+      const ingredientItem = document.createElement("div");
+      ingredientItem.classList = "recipe_ingredient";
+
+      const ingredientTitle = document.createElement("h5");
+      ingredientTitle.classList = "ingredient_title";
+      ingredientTitle.innerText = `${ingredient.ingredient}`;
+      ingredientItem.appendChild(ingredientTitle);
+
+      const ingredientText = document.createElement("p");
+      ingredientText.classList = "ingredient_text";
+      ingredientText.textContent = ingredient.quantity
+        ? ingredient.unit
+          ? `${ingredient.quantity} ${ingredient.unit}`
+          : ingredient.quantity
+        : "-";
+      ingredientItem.appendChild(ingredientText);
+
+      recipeIngredientsList.appendChild(ingredientItem);
     });
 
     // Return l'élément de la carte de recette
