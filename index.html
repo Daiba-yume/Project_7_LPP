@@ -36,10 +36,11 @@
                     </button>
                     <div class="dropdown-content">
                         <input type="text" id="ingredient-search" class="search-input">
+                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                         <ul class="dropdown-list" id="ingredientsList">
                             <!-- Les ingrédients seront injectés ici -->
                         </ul>
-                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
+
                     </div>
                 </div>
 
@@ -50,12 +51,13 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <label for="ingredient-search" class="visually-hidden">Rechercher un ingrédient</label>
+                        <label for="appareil-search" class="visually-hidden">Rechercher un appareils</label>
                         <input type="text" id="appliance-search" class="search-input">
+                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                         <ul class="dropdown-list" id="appliancesList">
                             <!-- Les appareils seront injectés ici -->
                         </ul>
-                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
+
                     </div>
                 </div>
 
@@ -66,20 +68,21 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <label for="ingredient-search" class="visually-hidden">Rechercher un ingrédient</label>
+                        <label for="ustensile-search" class="visually-hidden">Rechercher un ustensiles</label>
                         <input type="text" id="utensil-search" class="search-input">
+                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                         <ul class="dropdown-list" id="utensilsList">
                             <!-- Les ustensiles seront injectés ici -->
                         </ul>
-                        <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
+
                     </div>
                 </div>
             </div>
-            <span class="number_recipes"></span>
+            <div class="numberRecipes"></div>
         </section>
 
         <section class="tagsContainer">
-            <div class="selected-items"></div>
+            <div class="selected-tags"></div>
             <!-- Les tags sélectionnés seront injectés ici -->
         </section>
 

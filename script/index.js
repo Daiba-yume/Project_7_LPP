@@ -7,16 +7,21 @@ function displayData(recipes) {
   const recipesSection = document.querySelector(".recipesContainer");
 
   // Utilisation de map pour créer les cartes de recette
-  const recipeCards = recipes.map((recipe) => {
+  recipes.map((recipe) => {
     const recipeModel = recipeTemplate(recipe); // Crée un modèle de recette à partir de l'objet recette
-    return recipeModel.getRecipeCardDOM(); // Récupère le DOM de la carte de recette
+    const card = recipeModel.getRecipeCardDOM(); // Récupère le DOM de la carte de recette
+    recipesSection.appendChild(card);
   });
 
-  // Ajoute toutes les cartes de recettes au conteneur
-  recipeCards.forEach((card) => recipesSection.appendChild(card));
+  updateTotalRecipe(recipes);
 }
 
 // Event pour s'assurer que le DOM est complètement chargé
 document.addEventListener("DOMContentLoaded", () => {
   displayData(recipes); // Appelle la fonction pour afficher les recettes
 });
+
+function updateTotalRecipe(listRecipe) {
+  const totalRecipe = document.querySelector(".numberRecipes");
+  totalRecipe.innerHTML = listRecipe.length + " recettes";
+}
