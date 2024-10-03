@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
 body {
   max-width: 1440px;
   margin: 0 auto;
@@ -27,6 +30,7 @@ header {
   color: #ffd15b;
   text-align: center;
   font-family: "Anton", arial;
+  font-weight: 400;
 }
 
 .searchBar {
@@ -171,7 +175,16 @@ img.bannerImg {
 }
 
 .dropdown-content ul li:hover {
-  background-color: #ddd;
+  background-color: #ffd15b;
+}
+
+/*NUMBER RECIPE*/
+
+.numberRecipes {
+  font-family: "Anton", sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+  text-align: left;
 }
 
 /* TAG */
@@ -238,6 +251,7 @@ img.bannerImg {
 
 .recipe_title {
   font-family: "Anton", arial;
+  font-weight: 400;
   margin-top: 25px;
   margin-bottom: 25px;
 }
