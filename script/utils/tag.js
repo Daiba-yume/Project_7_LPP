@@ -22,7 +22,7 @@ export function selectItem(item, dropdownElement) {
 
     const removeBtn = document.createElement("button");
     const img = document.createElement("img");
-    img.src = "../assets/png/Vector.png"; // Remplacez par le chemin de votre image
+    img.src = "../assets/png/Vector.png";
     img.alt = "Remove"; // Texte alternatif pour l'accessibilité
 
     removeBtn.appendChild(img);
