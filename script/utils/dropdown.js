@@ -1,8 +1,9 @@
 import { recipes } from "../data/recipes.js";
+import { selectItem } from "./tag.js";
 
 // Récupère les éléments uniques depuis les recettes
-function getUniqueItems(key) {
-  const items = new Set(); // Évite les doublons
+export function getUniqueItems(key) {
+  const items = new Set();
   recipes.forEach((recipe) => {
     if (key === "ingredients") {
       recipe.ingredients.forEach((ingredientObj) =>
@@ -14,38 +15,23 @@ function getUniqueItems(key) {
       recipe.ustensils.forEach((ustensil) => items.add(ustensil));
     }
   });
-  return [...items]; // Retourne un tableau
+  return [...items];
 }
 
 // Remplit les dropdowns avec des éléments
-function populateDropdown(dropdownElement, items) {
+export function populateDropdown(dropdownElement, items) {
   const dropdownList = dropdownElement.querySelector(".dropdown-list");
-  dropdownList.innerHTML = ""; // Vide la liste
+  dropdownList.innerHTML = "";
 
   items.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item;
-    li.onclick = () => selectItem(item, dropdownElement); // Gère la sélection
+    li.onclick = (e) => {
+      e.stopPropagation(); // Empêche le clic sur li de fermer le dropdown
+      selectItem(item, dropdownElement); // Appelle la fonction pour gérer la sélection
+    };
     dropdownList.appendChild(li);
   });
-}
-
-// Gère la sélection d'un élément
-function selectItem(item, dropdownElement) {
-  const selectedItemsContainer =
-    dropdownElement.querySelector(".selected-items");
-
-  // Si le conteneur des éléments sélectionnés n'existe pas, on le crée
-  if (!selectedItemsContainer) {
-    const newContainer = document.createElement("div");
-    newContainer.classList.add("selected-items");
-    dropdownElement.appendChild(newContainer);
-  }
-
-  const selectedItem = document.createElement("span");
-  selectedItem.textContent = item;
-  selectedItem.classList.add("selected-item");
-  dropdownElement.querySelector(".selected-items").appendChild(selectedItem);
 }
 
 // Récupère les éléments des dropdowns
@@ -65,11 +51,20 @@ populateDropdown(utensilsDropdown, getUniqueItems("ustensils"));
     const content = dropdown.querySelector(".dropdown-content");
     const icon = dropdown.querySelector("i");
 
-    button.onclick = () => {
+    button.onclick = (e) => {
+      e.stopPropagation(); // Empêche la propagation pour ne pas fermer le dropdown
       content.classList.toggle("active"); // Active ou désactive le dropdown
+      button.classList.toggle("open"); // Ajoute ou retire la classe pour le style
       icon.style.transform = content.classList.contains("active")
         ? "rotate(180deg)"
         : "rotate(0deg)"; // Fait tourner l'icône
     };
+
+    // Si le clic se fait en dehors du dropdown, on ferme le dropdown
+    document.addEventListener("click", () => {
+      content.classList.remove("active");
+      button.classList.remove("open");
+      icon.style.transform = "rotate(0deg)";
+    });
   }
 );

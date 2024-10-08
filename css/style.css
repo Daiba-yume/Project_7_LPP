@@ -72,7 +72,7 @@ img.bannerImg {
   width: 90%;
   margin: auto;
   margin-top: 15px;
-  margin-bottom: 60px;
+  margin-bottom: 25px;
 }
 
 .dropdown-wrapper {
@@ -82,17 +82,16 @@ img.bannerImg {
 }
 
 .dropdown-btn {
+  background-color: #fff;
+  cursor: pointer;
+  width: 195px;
+  height: 56px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
-  width: 179px;
-  height: 56px;
-  margin-right: 64px;
-  border-radius: 11px;
-  cursor: pointer;
-  background-color: #ffffff;
+  margin-right: 40px;
+  padding: 15px;
+  border-radius: 10px;
   border: none;
 }
 
@@ -117,35 +116,30 @@ img.bannerImg {
   transform: rotate(180deg);
 }
 
-.dropdown-container {
-  display: flex;
-  gap: 20px;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropbtn {
-  background-color: #f3f3f3;
-  border: none;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
+.dropdown-btn.open {
+  border-radius: 10px 10px 0px 0px; /* Bord arrondi lorsque le dropdown est ouvert */
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  max-height: 200px;
-  overflow-y: auto;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
   z-index: 1;
-  border-radius: 5px;
-  padding: 10px;
+  width: 195px;
+  max-height: 225px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* Pour cacher complètement la scrollbar (sur les navigateurs Webkit comme Chrome) */
+.dropdown-content::-webkit-scrollbar {
+  display: none; /* Cela cache la scrollbar sur les navigateurs basés sur Webkit */
 }
 
 .dropdown-content.active {
@@ -157,11 +151,18 @@ img.bannerImg {
 }
 
 .dropdown-content input {
-  width: 90%;
+  width: 70%;
+  margin-left: 18px;
   padding: 8px;
-  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 3px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 35px;
+  top: 8px;
+  height: 15px;
 }
 
 .dropdown-content ul {
@@ -170,7 +171,7 @@ img.bannerImg {
 }
 
 .dropdown-content ul li {
-  padding: 8px 10px;
+  padding: 8px 20px;
   cursor: pointer;
 }
 
@@ -189,19 +190,32 @@ img.bannerImg {
 
 /* TAG */
 
-.selected-items {
+.tagsContainer {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  flex-direction: column;
 }
 
-.selected-item {
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 15px;
+  left: 4%;
+  gap: 20px;
+}
+
+.selected-tag {
+  width: 10%;
   background-color: #ffd15b;
   border-radius: 15px;
-  padding: 5px 10px;
-  margin: 5px;
-  display: flex;
-  align-items: center;
+  padding: 15px;
+}
+
+.selected-tag > button {
+  position: relative;
+  border: none;
+  background: none;
+  top: 1px;
 }
 
 /* CARD */

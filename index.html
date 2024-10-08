@@ -36,6 +36,7 @@
                     </button>
                     <div class="dropdown-content">
                         <input type="text" id="ingredient-search" class="search-input">
+                        <img src="assets/png/search.png" alt="icon de recherche" class="search-icon">
                         <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                         <ul class="dropdown-list" id="ingredientsList">
                             <!-- Les ingrédients seront injectés ici -->
@@ -53,6 +54,7 @@
                     <div class="dropdown-content">
                         <label for="appareil-search" class="visually-hidden">Rechercher un appareils</label>
                         <input type="text" id="appliance-search" class="search-input">
+                        <img src="assets/png/search.png" alt="icon de recherche" class="search-icon">
                         <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                         <ul class="dropdown-list" id="appliancesList">
                             <!-- Les appareils seront injectés ici -->
@@ -70,6 +72,7 @@
                     <div class="dropdown-content">
                         <label for="ustensile-search" class="visually-hidden">Rechercher un ustensiles</label>
                         <input type="text" id="utensil-search" class="search-input">
+                        <img src="assets/png/search.png" alt="icon de recherche" class="search-icon">
                         <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
                         <ul class="dropdown-list" id="utensilsList">
                             <!-- Les ustensiles seront injectés ici -->
@@ -94,9 +97,10 @@
         </section>
     </main>
     <script type="module" src="./script/index.js"></script>
-    <script type="module" src="./script/templates/listRecipe.js"></script>
     <script type="module" src="./script/templates/card.js"></script>
-    <script type="module" src="./script/utils/tagFilter.js"></script>
+    <script type="module" src="./script/utils/dropdown.js"></script>
+    <script type="module" src="./script/utils/tag.js"></script>
+    <script type="module" src="./script/utils/searchHandler.js"></script>
 
 
 
