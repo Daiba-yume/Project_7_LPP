@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   displayData(recipes); // Appelle la fonction pour afficher les recettes
 });
 
+// Met à jour le nombre total de recettes
 function updateTotalRecipe(listRecipe) {
   const totalRecipe = document.querySelector(".numberRecipes");
   totalRecipe.innerHTML = listRecipe.length + " recettes";
