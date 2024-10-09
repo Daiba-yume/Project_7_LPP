@@ -48,6 +48,11 @@ header {
   padding-left: 20px;
   padding-right: 70px;
   font-size: 1rem;
+  background-image: url("../assets/png/Vector.png");
+  background-repeat: no-repeat;
+  background-position: right 75px center;
+  background-size: 24px;
+  z-index: 1;
 }
 
 .searchButton {
@@ -94,7 +99,7 @@ img.bannerImg {
   border: none;
 }
 
-.dropdown-btn h1 {
+.dropdown-btn span {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;

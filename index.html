@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="icon" type="image/png" href="./assets/png/ellipse.png" />
     <script src="https://kit.fontawesome.com/75b27a2f9b.js" crossorigin="anonymous"></script>
+    <meta name="description"
+        content="Découvrez des recettes délicieuses et faciles à réaliser pour tous les goûts. Des plats rapides aux desserts savoureux, trouvez l'inspiration pour vos repas quotidiens." />
     <title>Les Petits Plats</title>
 </head>
 
@@ -27,11 +31,12 @@
     <main>
         <!-- FILTERS -->
         <section class="filters">
+            <h2 class="visually-hidden">Filters</h2>
             <div class="dropdown-wrapper">
                 <!-- Dropdown Ingrédients -->
                 <div class="dropdown dropdown-ingredients">
                     <button class="dropdown-btn">
-                        <h1>Ingrédients</h1>
+                        <span>Ingrédients</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -48,11 +53,10 @@
                 <!-- Dropdown Appareils -->
                 <div class="dropdown dropdown-appareils">
                     <button class="dropdown-btn">
-                        <h1>Appareils</h1>
+                        <span>Appareils</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <label for="appareil-search" class="visually-hidden">Rechercher un appareils</label>
                         <input type="text" id="appliance-search" class="search-input">
                         <img src="assets/png/search.png" alt="icon de recherche" class="search-icon">
                         <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
@@ -66,11 +70,10 @@
                 <!-- Dropdown Ustensiles -->
                 <div class="dropdown dropdown-ustensiles">
                     <button class="dropdown-btn">
-                        <h1>Ustensiles</h1>
+                        <span>Ustensiles</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <label for="ustensile-search" class="visually-hidden">Rechercher un ustensiles</label>
                         <input type="text" id="utensil-search" class="search-input">
                         <img src="assets/png/search.png" alt="icon de recherche" class="search-icon">
                         <div class="selected-items"></div> <!-- Conteneur pour les éléments sélectionnés -->
@@ -85,6 +88,7 @@
         </section>
 
         <section class="tagsContainer">
+            <h2 class="visually-hidden">Tags</h2>
             <div class="selected-tags"></div>
             <!-- Les tags sélectionnés seront injectés ici -->
         </section>

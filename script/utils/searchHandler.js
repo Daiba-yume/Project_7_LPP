@@ -1,30 +1,50 @@
+// Importation des recettes et du modèle de carte
 import { recipes } from "../data/recipes.js";
+import { recipeTemplate } from "../templates/card.js";
 
-// Fonction pour enlever les espaces inutiles et tout mettre en minuscules
-function simplifierTexte(texte) {
-  return texte.toLowerCase().trim();
-}
+// Fonction pour afficher les recettes dans la section
+function displayData(recipes) {
+  const recipesSection = document.querySelector(".recipesContainer");
+  recipesSection.innerHTML = ""; // Nettoie la section avant d'afficher de nouvelles recettes
 
-// Fonction de recherche qui va chercher dans le titre et la description
-function rechercherRecettes(termeRecherche) {
-  // On simplifie le terme de recherche (on enlève les espaces inutiles, on met en minuscule)
-  const termeSimplifie = simplifierTexte(termeRecherche);
-
-  // On filtre les recettes qui correspondent
-  const resultats = recipes.filter(function (recipe) {
-    const titreSimplifie = simplifierTexte(recipe.name);
-    const descriptionSimplifiee = simplifierTexte(recipe.description);
-
-    // On vérifie si le terme est présent dans le titre ou la description
-    return (
-      titreSimplifie.includes(termeSimplifie) ||
-      descriptionSimplifiee.includes(termeSimplifie)
-    );
+  // Création et ajout des cartes de recette
+  recipes.forEach((recipe) => {
+    const card = recipeTemplate(recipe).getRecipeCardDOM(); // Récupère et crée la carte
+    recipesSection.appendChild(card); // Ajoute la carte à la section
   });
 
-  // On affiche les résultats dans la console (ou tu peux les afficher dans le HTML plus tard)
-  console.log(resultats);
+  updateTotalRecipe(recipes.length); // Met à jour le nombre total de recettes
 }
 
-// Exemple d'utilisation avec un terme de recherche
-rechercherRecettes("coco");
+// Fonction de recherche par titre
+function searchRecipesByTitle(search = "") {
+  // Filtre les recettes dont le titre contient la chaîne de caractères "search"
+  const filteredRecipes = recipes.filter((recipe) =>
+    // Rend la recherche insensible à la casse
+    recipe.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Affiche les noms des recettes trouvées dans la console
+  console.log(
+    "Recettes trouvées :",
+    filteredRecipes.map((recipe) => recipe.name).join(", ")
+  );
+
+  displayData(filteredRecipes); // Affiche uniquement les recettes filtrées
+}
+
+// Met à jour le nombre total de recettes
+function updateTotalRecipe(count) {
+  document.querySelector(".numberRecipes").innerHTML = `${count} recettes`;
+}
+
+// Assure que le DOM est chargé avant d'ajouter les événements
+document.addEventListener("DOMContentLoaded", () => {
+  // Affiche toutes les recettes au chargement de la page
+  searchRecipesByTitle();
+
+  // Événement de recherche pour filtrer les recettes
+  document.querySelector("#search").addEventListener("input", (e) => {
+    searchRecipesByTitle(e.target.value); // Filtre les recettes par le titre
+  });
+});
