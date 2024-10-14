@@ -3,9 +3,9 @@ import { recipes } from "./data/recipes.js";
 import { recipeTemplate } from "./templates/card.js";
 
 // Afficher les recettes dans la section
-function displayData(recipes) {
+export const displayData = (recipes) => {
   const recipesSection = document.querySelector(".recipesContainer");
-
+  recipesSection.innerHTML = "";
   // Utilisation de map pour créer les cartes de recette
   recipes.map((recipe) => {
     const card = recipeTemplate(recipe).getRecipeCardDOM(); // Récupère et crée la carte
@@ -13,12 +13,11 @@ function displayData(recipes) {
   });
 
   updateTotalRecipe(recipes);
-}
+};
 
 // Event pour s'assurer que le DOM est complètement chargé
-document.addEventListener("DOMContentLoaded", () => {
-  displayData(recipes); // Appelle la fonction pour afficher les recettes
-});
+
+displayData(recipes); // Appelle la fonction pour afficher les recettes
 
 // Met à jour le nombre total de recettes
 function updateTotalRecipe(listRecipe) {
