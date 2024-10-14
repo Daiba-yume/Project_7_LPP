@@ -227,7 +227,6 @@ img.bannerImg {
 }
 
 .selected-tag {
-  width: 12%;
   background-color: #ffd15b;
   border-radius: 15px;
   padding: 15px;
@@ -238,6 +237,12 @@ img.bannerImg {
   border: none;
   background: none;
   top: 1px;
+}
+
+.remove {
+  position: relative;
+  margin-left: 40px;
+  top: 2px;
 }
 
 /* CARD */

@@ -25,7 +25,8 @@ export function selectItem(item, dropdownElement) {
 
     const removeBtn = document.createElement("button"); // Crée le bouton de retrait
     const img = document.createElement("img");
-    img.src = "../assets/png/Vector.png";
+    img.classList.add("remove");
+    img.src = "../assets/png/vectorTag.png";
     img.alt = "Remove"; // Texte alternatif pour l'accessibilité
 
     removeBtn.appendChild(img); // Ajoute l'image au bouton
