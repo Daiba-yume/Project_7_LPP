@@ -8,7 +8,7 @@ const filteredRecipes = (recipes, searchBar) => {
   // KEYUP Exécute la recherche à chaque touche relâchée
   searchBar.addEventListener("keyup", (e) => {
     const query = e.target.value.toLowerCase(); // Valeur de la recherche en minuscule
-    // cache le button
+    // cache ou montre le button d'effacement
     if (query.length === 0) {
       document.getElementById("buttonErase").style.display = "none";
     } else {

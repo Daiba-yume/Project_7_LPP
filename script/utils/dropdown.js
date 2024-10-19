@@ -1,5 +1,5 @@
 import { recipes } from "../data/recipes.js";
-import { selectItem } from "./tag.js";
+import { selectItem } from "./selectTag.js";
 
 // Récupère les éléments uniques depuis les recettes
 export function getUniqueItems(key) {
