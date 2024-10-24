@@ -1,7 +1,7 @@
 // Importation data recipes et model card recipe
 import { recipes } from "./data/recipes.js";
 import { recipeTemplate } from "./templates/card.js";
-import { filterDropdown } from "./utils/dropdownFilter.js";
+import { inputTag } from "./utils/inputTag.js";
 
 // Afficher les recettes dans la section
 export const displayData = (recipes) => {
@@ -17,9 +17,9 @@ export const displayData = (recipes) => {
 };
 
 // Utilise la fonction pour chaque catégorie
-filterDropdown("ingredient-search", "ingredientsList");
-filterDropdown("appliance-search", "appliancesList");
-filterDropdown("utensil-search", "utensilsList");
+inputTag("ingredient-search", "ingredientsList");
+inputTag("appliance-search", "appliancesList");
+inputTag("utensil-search", "utensilsList");
 
 displayData(recipes); // Appelle la fonction pour afficher les recettes
 

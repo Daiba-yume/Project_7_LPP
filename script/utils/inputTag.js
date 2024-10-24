@@ -1,5 +1,5 @@
 // Fonction pour filtrer les élmts du dropdown selon l'entrée de l'user
-export function filterDropdown(inputId, dropdownListId) {
+export function inputTag(inputId, dropdownListId) {
   // Ajout un écouteur d'événements sur l'input spécifié par inputId
   document.getElementById(inputId).addEventListener("input", function (e) {
     // Récupère la valeur saisie dans l'input et la convertit en minuscules
