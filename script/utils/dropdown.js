@@ -7,17 +7,18 @@ export function getUniqueItems(key) {
 
   recipes.forEach((recipe) => {
     if (key === "ingredients") {
-      // Ajoute chaque ingrédient unique au Set
+      // Ajoute chaque ingrédient unique au Set avec la première lettre en Lower
       recipe.ingredients.forEach((ingredientObj) =>
-        items.add(ingredientObj.ingredient)
+        items.add(ingredientObj.ingredient.toLowerCase())
       );
     } else if (key === "appliance") {
-      items.add(recipe.appliance);
+      items.add(recipe.appliance.toLowerCase());
     } else if (key === "ustensils") {
-      recipe.ustensils.forEach((ustensil) => items.add(ustensil));
+      recipe.ustensils.forEach((ustensil) => items.add(ustensil.toLowerCase()));
     }
   });
-  return [...items]; // Retourne les éléments uniques sous forme de tableau
+  // Upper sur la première lettre et retourne un tableau
+  return [...items].map((item) => item.charAt(0).toUpperCase() + item.slice(1));
 }
 
 // Remplit les dropdowns avec des éléments
