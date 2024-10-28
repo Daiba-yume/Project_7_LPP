@@ -71,12 +71,5 @@ populateDropdown(utensilsDropdown, getUniqueItems("ustensils"));
       e.stopPropagation(); // Empêche la propagation
       content.classList.add("active"); // Assure que le dropdown est actif
     };
-
-    // Si le clic se fait en dehors du dropdown, on ferme le dropdown
-    document.addEventListener("click", () => {
-      content.classList.remove("active"); // Ferme le dropdown
-      button.classList.remove("open"); // Réinitialise le style du bouton
-      icon.style.transform = "rotate(0deg)"; // Réinitialise l'icône
-    });
   }
 );

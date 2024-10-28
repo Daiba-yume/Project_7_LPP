@@ -180,13 +180,94 @@ img.bannerImg {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 3px;
+  position: relative;
 }
 
-.search-icon {
+/* Input Ingredient*/
+.eraseIng {
+  display: block;
   position: absolute;
-  right: 35px;
-  top: 8px;
-  height: 15px;
+  font-size: 30px;
+  font-weight: 100;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  right: 50px;
+  border: none;
+  cursor: pointer;
+  color: #7a7a7a;
+}
+
+.searchIconIng {
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  font-weight: 100;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  right: 30px;
+  border: none;
+  cursor: pointer;
+  color: #7a7a7a;
+}
+
+/* Input Appliance*/
+.eraseAppl {
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  font-weight: 100;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  right: 50px;
+  border: none;
+  cursor: pointer;
+  color: #7a7a7a;
+}
+
+.searchIconAppl {
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  font-weight: 100;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  right: 30px;
+  border: none;
+  cursor: pointer;
+  color: #7a7a7a;
+}
+
+/* Input Ustensil*/
+.eraseUsten {
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  font-weight: 100;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  right: 50px;
+  border: none;
+  cursor: pointer;
+  color: #7a7a7a;
+}
+
+.searchIconUsten {
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  font-weight: 100;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  right: 30px;
+  border: none;
+  cursor: pointer;
+  color: #7a7a7a;
 }
 
 .dropdown-content ul {
