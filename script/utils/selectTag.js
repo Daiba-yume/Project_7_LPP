@@ -23,6 +23,7 @@ export function selectItem(item, dropdownElement) {
   );
   if (itemToHide) {
     itemToHide.style.display = "none"; // Cache l'élément
+    itemToHide.classList.add("hidden-item"); // Marque l'élément comme "caché" pour la recherche
   }
 
   // Supprime le tag et réaffiche l'élément dans le dropdown
@@ -31,6 +32,7 @@ export function selectItem(item, dropdownElement) {
     selectedItemsContainer.removeChild(selectedItem); // Retire le tag
     if (itemToHide) {
       itemToHide.style.display = "block"; // Réaffiche l'élément
+      itemToHide.classList.remove("hidden-item"); // // Retire la marque "caché" pour permettre une nouvelle recherche
     }
   };
 }

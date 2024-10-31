@@ -11,7 +11,10 @@ export function inputTag(inputId, dropdownListId) {
     // Parcourt chaque élément de la liste dropdown
     dropdownItems.forEach((item) => {
       // On Vérifie si le texte de l'élément inclut la valeur saisie par l'user
-      if (item.textContent.toLowerCase().includes(inputValue)) {
+      if (
+        item.textContent.toLowerCase().includes(inputValue) &&
+        !item.classList.contains("hidden-item") // Ignore les éléments déjà sélectionnés
+      ) {
         // Si oui, affiche l'élément
         item.style.display = "block";
       } else {
