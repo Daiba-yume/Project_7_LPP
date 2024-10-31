@@ -1,5 +1,6 @@
 import { recipes } from "../data/recipes.js";
-import { selectItem } from "./selectTag.js";
+import { selectTag } from "./selectTag.js";
+import { selectSelectedItem } from "./selectedItems.js"; // Fonction pour gérer les tags sélectionnés
 
 // Récupère les éléments uniques depuis les recettes
 export function getUniqueItems(key) {
@@ -27,13 +28,16 @@ export function populateDropdown(dropdownElement, items) {
   dropdownList.innerHTML = ""; // Vide la liste avant d'ajouter des éléments
 
   items.forEach((item) => {
-    const li = document.createElement("li"); // Crée un nouvel élément de liste
-    li.textContent = item; // Définit le texte de l'élément
+    const li = document.createElement("li");
+    li.textContent = item;
+
     // Gère le clic sur l'élément de liste
     li.onclick = (e) => {
-      e.stopPropagation(); // Empêche le clic sur li de fermer le dropdown
-      selectItem(item, dropdownElement); // Appelle la fonction pour gérer la sélection
+      e.stopPropagation();
+      selectSelectedItem(item, dropdownElement); // Utilise selectSelectedItem pour l'affichage à l'intérieur
+      selectTag(item); // Utilise selectTag pour l'affichage à l'extérieur
     };
+
     dropdownList.appendChild(li); // Ajoute l'élément à la liste du dropdown
   });
 }

@@ -284,6 +284,31 @@ img.bannerImg {
   background-color: #ffd15b;
 }
 
+.selected-items {
+  display: block;
+  margin-top: 15px;
+}
+
+.selected-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #ffd15b;
+}
+
+.selected-item:hover {
+  font-weight: bold;
+}
+
+.remove-selectItem {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
 /*NUMBER RECIPE*/
 
 .numberRecipes {
