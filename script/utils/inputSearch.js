@@ -2,9 +2,15 @@
 import { filterRecipes } from "./filterRecipes.js"; // Import de la fonction de filtrage
 import { displayData } from "../index.js";
 import { recipes } from "../data/recipes.js"; // Import des données de recettes
+import { searchByTags } from "./filterByTags.js";
+import {
+  selectedTagsIng,
+  selectedTagsUst,
+  selectedTagsApp,
+} from "./selectTag.js";
 
 // Fonction principale qui gère la recherche et l'affichage des recettes
-const filteredRecipes = (recipes, searchBar) => {
+export const filteredRecipes = (recipes, searchBar) => {
   // KEYUP Exécute la recherche à chaque touche relâchée
   searchBar.addEventListener("keyup", (e) => {
     const query = e.target.value.toLowerCase(); // Valeur de la recherche en minuscule
@@ -16,9 +22,22 @@ const filteredRecipes = (recipes, searchBar) => {
     }
     // si l'user a saisi au moins 3 caractères
     if (query.length >= 3) {
-      filterRecipes(recipes, query); // Appelle la fonction de filtrage
+      let listRecipes = filterRecipes(recipes, query); // Appelle la fonction de filtrage
+      listRecipes = searchByTags(
+        listRecipes,
+        selectedTagsIng,
+        selectedTagsUst,
+        selectedTagsApp
+      );
+      displayData(listRecipes);
     } else {
-      displayData(recipes); // Réaffiche toutes les recettes
+      let listRecipes = searchByTags(
+        recipes,
+        selectedTagsIng,
+        selectedTagsUst,
+        selectedTagsApp
+      );
+      displayData(listRecipes); // Réaffiche toutes les recettes
     }
   });
 

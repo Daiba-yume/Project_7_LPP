@@ -1,11 +1,32 @@
+export let selectedTagsIng = [];
+export let selectedTagsUst = [];
+export let selectedTagsApp = [];
+
 // Fonction pour gérer la sélection d'un élément en dehors du dropdown
-export function selectTag(item) {
+export function selectTag(item, key) {
   const selectedItemsContainer = document.querySelector(".selected-tags");
 
   // Crée un tag sélectionné
   const selectedItem = document.createElement("span");
   selectedItem.textContent = item; // Définit le texte du tag
   selectedItem.classList.add("selected-tag");
+
+  switch (key) {
+    case "ingredient":
+      selectedTagsIng.push(item);
+      console.log(item);
+
+      break;
+    case "appliance":
+      selectedTagsUst.push(item);
+      break;
+    case "ustensil":
+      selectedTagsApp.push(item);
+      break;
+  }
+
+  const searchBar = document.getElementById("search");
+  searchBar.dispatchEvent(new Event("keyup"));
 
   // Crée un bouton pour supprimer le tag
   const removeBtn = document.createElement("button");
@@ -20,5 +41,30 @@ export function selectTag(item) {
     e.stopPropagation(); // Empêche la fermeture du dropdown
     selectedItemsContainer.removeChild(selectedItem); // Retire le tag
     // Réafficher l'élément dans le dropdown si nécessaire
+    switch (key) {
+      case "ingredient":
+        const indexIng = selectedTagsIng.indexOf(item);
+        if (indexIng > -1) {
+          // only splice array when item is found
+          selectedTagsIng.splice(indexIng, 1); // 2nd parameter means remove one item only
+        }
+        break;
+      case "appliance":
+        const indexApp = selectedTagsApp.indexOf(item);
+        if (indexApp > -1) {
+          // only splice array when item is found
+          selectedTagsApp.splice(indexApp, 1); // 2nd parameter means remove one item only
+        }
+        break;
+      case "ustensil":
+        const indexUst = selectedTagsUst.indexOf(item);
+        if (indexUst > -1) {
+          // only splice array when item is found
+          selectedTagsUst.splice(indexUst, 1); // 2nd parameter means remove one item only
+        }
+        break;
+    }
+    let searchBar = document.getElementsById("search");
+    searchBar.dispatchEvent(new Event("keyup"));
   };
 }

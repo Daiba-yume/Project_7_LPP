@@ -1,30 +1,35 @@
 // On cherche un tag dans la liste des ingrédients
-function searchInIng(recipes, selectedTag) {
-  selectedTag = selectedTag.tolowerCase();
-  return recipes.filter((recipe) => {
+function searchInIng(listRecipes, selectedTag) {
+  selectedTag = selectedTag.toLowerCase();
+
+  const results = listRecipes.filter((recipe) =>
     // Vérifie si un tag d'ingrédient correspond
     recipe.ingredients.some((ingredient) =>
-      ingredient.tolowerCase().includes(selectedTag)
-    );
-  });
+      ingredient.ingredient.toLowerCase().includes(selectedTag)
+    )
+  );
+
+  return results;
 }
 // On cherche un tag dans la liste des ustensiles
-function searchInUst(recipes, selectedTag) {
-  selectedTag = selectedTag.tolowerCase();
-  return recipes.filter((recipe) => {
+function searchInUst(listRecipes, selectedTag) {
+  selectedTag = selectedTag.toLowerCase();
+  const results = listRecipes.filter((recipe) =>
     // Vérifie si un tag d'ustensile correspond
     recipe.ustensils.some((ustensil) =>
-      ustensil.tolowerCase().includes(selectedTag)
-    );
-  });
+      ustensil.toLowerCase().includes(selectedTag)
+    )
+  );
+  return results;
 }
 // On cherche un tag dans la liste des appareils
-function searchInApp(recipes, selectedTag) {
-  selectedTag = selectedTag.tolowerCase();
-  return recipes.filter((recipe) => {
+function searchInApp(listRecipes, selectedTag) {
+  selectedTag = selectedTag.toLowerCase();
+  const results = listRecipes.filter((recipe) =>
     // Vérifie si un tag d'appareil correspond
-    recipe.appliances.tolowerCase().includes(selectedTag);
-  });
+    recipe.appliance.toLowerCase().includes(selectedTag)
+  );
+  return results;
 }
 
 // Fonction principale qui filtre les recettes par
@@ -35,24 +40,19 @@ export function searchByTags(
   selectedTagsUst,
   selectedTagsApp
 ) {
-  let filtredRecipes = Set();
+  let filtredRecipes = recipes;
   // Filtre les recettes par ingredients
   selectedTagsIng.forEach((selectedTag) => {
-    let listfiltredIng = searchInIng(recipes, selectedTag);
-    // Ajoute les résultats au set
-    filtredRecipes.push[listfiltredIng];
+    filtredRecipes = searchInIng(filtredRecipes, selectedTag);
   });
+  console.log(filtredRecipes);
   // Filtre les recettes par applicances
   selectedTagsApp.forEach((selectedTag) => {
-    let listfiltredApp = searchInApp(listfiltredIng, selectedTag);
-    // Ajoute les résultats au set
-    filtredRecipes.push[listfiltredApp];
+    filtredRecipes = searchInApp(filtredRecipes, selectedTag);
   });
   // Filtre les recettes par ustensiles
   selectedTagsUst.forEach((selectedTag) => {
-    let listfiltredUst = searchInUst(listfiltredIng, selectedTag);
-    // Ajoute les résultats au set
-    filtredRecipes.push[listfiltredUst];
+    filtredRecipes = searchInUst(filtredRecipes, selectedTag);
   });
   return filtredRecipes; // Retourne les recettes filtrées
 }

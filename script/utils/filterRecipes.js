@@ -13,5 +13,5 @@ export const filterRecipes = (recipes, query) => {
       )
     );
   });
-  displayData(results);
+  return results;
 };

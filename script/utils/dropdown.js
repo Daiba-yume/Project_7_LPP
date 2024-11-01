@@ -23,7 +23,7 @@ export function getUniqueItems(key) {
 }
 
 // Remplit les dropdowns avec des éléments
-export function populateDropdown(dropdownElement, items) {
+export function populateDropdown(dropdownElement, items, key) {
   const dropdownList = dropdownElement.querySelector(".dropdown-list");
   dropdownList.innerHTML = ""; // Vide la liste avant d'ajouter des éléments
 
@@ -35,7 +35,7 @@ export function populateDropdown(dropdownElement, items) {
     li.onclick = (e) => {
       e.stopPropagation();
       selectSelectedItem(item, dropdownElement); // Utilise selectSelectedItem pour l'affichage à l'intérieur
-      selectTag(item); // Utilise selectTag pour l'affichage à l'extérieur
+      selectTag(item, key); // Utilise selectTag pour l'affichage à l'extérieur
     };
 
     dropdownList.appendChild(li); // Ajoute l'élément à la liste du dropdown
@@ -48,9 +48,13 @@ const appliancesDropdown = document.querySelector(".dropdown-appareils");
 const utensilsDropdown = document.querySelector(".dropdown-ustensiles");
 
 // Remplit les dropdowns avec les éléments uniques
-populateDropdown(ingredientsDropdown, getUniqueItems("ingredients"));
-populateDropdown(appliancesDropdown, getUniqueItems("appliance"));
-populateDropdown(utensilsDropdown, getUniqueItems("ustensils"));
+populateDropdown(
+  ingredientsDropdown,
+  getUniqueItems("ingredients"),
+  "ingredient"
+);
+populateDropdown(appliancesDropdown, getUniqueItems("appliance"), "appliance");
+populateDropdown(utensilsDropdown, getUniqueItems("ustensils"), "ustensil");
 
 // Gère l'ouverture et la fermeture des dropdowns
 [ingredientsDropdown, appliancesDropdown, utensilsDropdown].forEach(
