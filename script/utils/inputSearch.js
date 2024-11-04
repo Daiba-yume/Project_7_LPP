@@ -1,4 +1,4 @@
-// filteredRecipes.js
+"use strict";
 import { filterRecipes } from "./filterRecipes.js"; // Import de la fonction de filtrage
 import { displayData } from "../index.js";
 import { recipes } from "../data/recipes.js"; // Import des données de recettes

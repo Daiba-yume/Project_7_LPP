@@ -1,3 +1,4 @@
+"use strict";
 export let selectedTagsIng = [];
 export let selectedTagsUst = [];
 export let selectedTagsApp = [];
@@ -18,10 +19,10 @@ export function selectTag(item, key) {
 
       break;
     case "appliance":
-      selectedTagsUst.push(item);
+      selectedTagsApp.push(item);
       break;
     case "ustensil":
-      selectedTagsApp.push(item);
+      selectedTagsUst.push(item);
       break;
   }
 
@@ -64,7 +65,7 @@ export function selectTag(item, key) {
         }
         break;
     }
-    let searchBar = document.getElementsById("search");
+    let searchBar = document.getElementById("search");
     searchBar.dispatchEvent(new Event("keyup"));
   };
 }

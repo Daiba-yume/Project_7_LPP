@@ -1,5 +1,4 @@
-// filterRecipes.js
-import { displayData } from "../index.js";
+"use strict";
 // Fonction pour filtrer et afficher les recettes
 export const filterRecipes = (recipes, query) => {
   query = query.toLowerCase();

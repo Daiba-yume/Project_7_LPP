@@ -1,3 +1,4 @@
+"use strict";
 // Fonction pour gérer l'affichage d'un élément sélectionné dans le dropdown
 export function selectSelectedItem(item, dropdownElement) {
   const selectedItemsTag = dropdownElement.querySelector(".selected-items"); // Conteneur pour les éléments sélectionnés

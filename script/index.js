@@ -1,8 +1,8 @@
+"use strict";
 // Importation data recipes et model card recipe
 import { recipes } from "./data/recipes.js";
 import { recipeTemplate } from "./templates/card.js";
 import { inputTag } from "./utils/inputTag.js";
-import { initializeDropdownEvents } from "./utils/dropdownEvent.js";
 
 // Afficher les recettes dans la section
 export const displayData = (recipes) => {
@@ -17,30 +17,10 @@ export const displayData = (recipes) => {
   updateTotalRecipe(recipes);
 };
 
-// Initialise les événements pour chaque catégorie de dropdown
-initializeDropdownEvents(
-  "ingredientsDropdown",
-  "ingredient-search",
-  "eraseIng",
-  "searchIconIng"
-);
-initializeDropdownEvents(
-  "appliancesDropdown",
-  "appliance-search",
-  "eraseAppl",
-  "searchIconAppl"
-);
-initializeDropdownEvents(
-  "utensilsDropdown",
-  "utensil-search",
-  "eraseUsten",
-  "searchIconUsten"
-);
-
 // Utilise la fonction pour chaque catégorie
-inputTag("ingredient-search", "ingredientsList");
-inputTag("appliance-search", "appliancesList");
-inputTag("utensil-search", "utensilsList");
+inputTag("ingredient-search", "ingredientsList", "eraseIng");
+inputTag("appliance-search", "appliancesList", "eraseAppl");
+inputTag("utensil-search", "utensilsList", "eraseUsten");
 
 displayData(recipes); // Appelle la fonction pour afficher les recettes
 

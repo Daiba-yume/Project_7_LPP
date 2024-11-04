@@ -1,26 +1,49 @@
-// Fonction pour filtrer les élmts du dropdown selon l'entrée de l'user
-export function inputTag(inputId, dropdownListId) {
-  // Ajout un écouteur d'événements sur l'input spécifié par inputId
-  document.getElementById(inputId).addEventListener("input", function (e) {
-    // Récupère la valeur saisie dans l'input et la convertit en minuscules
+"use strict";
+export function inputTag(inputId, dropdownListId, eraseIconClass) {
+  // Récupère l'élément input par son ID
+  const inputElement = document.getElementById(inputId);
+  // Vérifie si l'élément input existe
+  if (!inputElement) {
+    console.error(`Input avec l'ID ${inputId} introuvable.`);
+    return; // Arrête l'exécution si l'élément n'est pas trouvé
+  }
+  // Ajoute un écouteur d'événements pour détecter les saisies dans le champ input
+  inputElement.addEventListener("input", function (e) {
+    // Convertit la valeur saisie par l'utilisateur en minuscules pour une comparaison insensible à la casse
     const inputValue = e.target.value.toLowerCase();
-
-    // Sélectionne tous les éléments <li> à l'intérieur de la liste spécifiée par dropdownListId
+    // Sélectionne tous les éléments de la liste déroulante correspondant à l'ID passé en paramètre
     const dropdownItems = document.querySelectorAll(`#${dropdownListId} li`);
-
-    // Parcourt chaque élément de la liste dropdown
+    // Parcourt chaque élément de la liste déroulante
     dropdownItems.forEach((item) => {
-      // On Vérifie si le texte de l'élément inclut la valeur saisie par l'user
-      if (
-        item.textContent.toLowerCase().includes(inputValue) &&
-        !item.classList.contains("hidden-item") // Ignore les éléments déjà sélectionnés
-      ) {
+      // Vérifie si le texte de l'élément inclut la valeur saisie
+      if (item.textContent.toLowerCase().includes(inputValue)) {
         // Si oui, affiche l'élément
         item.style.display = "block";
       } else {
-        // Sinon, cache l'élément
+        // Sinon, masque l'élément
         item.style.display = "none";
       }
     });
   });
+  // Ajoute un écouteur d'événements pour l'icône de réinitialisation (croix)
+  const eraseIcon = document.querySelector(`.${eraseIconClass}`);
+  // Vérifie si l'icône de réinitialisation a été trouvée
+  if (eraseIcon) {
+    // Ajoute un événement click à l'icône
+    eraseIcon.addEventListener("click", () => {
+      // Réinitialise la valeur du champ input à une chaîne vide
+      inputElement.value = "";
+      // Sélectionne tous les éléments de la liste déroulante
+      const dropdownItems = document.querySelectorAll(`#${dropdownListId} li`);
+      // Affiche tous les éléments de la liste déroulante
+      dropdownItems.forEach((item) => {
+        item.style.display = "block"; // Vous pouvez changer cela si nécessaire
+      });
+    });
+  } else {
+    // Si l'icône n'est pas trouvée, affiche un message d'erreur dans la console
+    console.error(
+      `Icône de la croix avec la classe ${eraseIconClass} introuvable.`
+    );
+  }
 }

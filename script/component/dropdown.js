@@ -1,5 +1,6 @@
+"use strict";
 import { recipes } from "../data/recipes.js";
-import { selectTag } from "./selectTag.js";
+import { selectTag } from "../utils/selectTag.js";
 import { selectSelectedItem } from "./selectedItems.js"; // Fonction pour gérer les tags sélectionnés
 
 // Récupère les éléments uniques depuis les recettes
