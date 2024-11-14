@@ -31,7 +31,8 @@ export function selectTag(item, key) {
 
   // Crée un bouton pour supprimer le tag
   const removeBtn = document.createElement("button");
-  removeBtn.innerHTML = '<img src="../assets/png/vectorTag.png" alt="Remove">';
+  removeBtn.innerHTML =
+    '<img src="../assets/webp/vectorTag.webp" alt="Remove">';
   selectedItem.appendChild(removeBtn); // Ajoute le bouton au tag
 
   // Ajoute le tag sélectionné au conteneur

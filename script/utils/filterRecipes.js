@@ -24,7 +24,7 @@ export function filterRecipes(listRecipes, query) {
     }
 
     if (exist) {
-      results.push[recipe];
+      results.push(recipe);
     }
   }
 
