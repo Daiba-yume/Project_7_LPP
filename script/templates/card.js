@@ -41,7 +41,7 @@ export function recipeTemplate(recipe) {
     recipeCard.appendChild(recipeContent);
 
     // Création du titre de la recette
-    const recipeTitle = document.createElement("h3");
+    const recipeTitle = document.createElement("h1");
     recipeTitle.classList = "recipe_title";
     recipeTitle.textContent = `${name}`;
     recipeContent.appendChild(recipeTitle);
@@ -52,7 +52,7 @@ export function recipeTemplate(recipe) {
     recipeContent.appendChild(recipeDescription);
 
     // Création du titre 'RECETTE'
-    const descriptionTitle = document.createElement("h4");
+    const descriptionTitle = document.createElement("h2");
     descriptionTitle.classList = "description_title";
     descriptionTitle.innerText = "RECETTE";
     recipeDescription.appendChild(descriptionTitle);
@@ -69,7 +69,7 @@ export function recipeTemplate(recipe) {
     recipeContent.appendChild(recipeIngredients);
 
     // Création du titre 'INGRÉDIENTS'
-    const ingredientsTitle = document.createElement("h4");
+    const ingredientsTitle = document.createElement("h3");
     ingredientsTitle.classList = "ingredients_title";
     ingredientsTitle.innerText = "INGRÉDIENTS";
     recipeIngredients.appendChild(ingredientsTitle);
@@ -85,7 +85,7 @@ export function recipeTemplate(recipe) {
       const ingredientItem = document.createElement("div");
       ingredientItem.classList = "recipe_ingredient";
 
-      const ingredientTitle = document.createElement("h5");
+      const ingredientTitle = document.createElement("h4");
       ingredientTitle.classList = "ingredient_title";
       ingredientTitle.innerText = `${ingredient.ingredient}`;
       ingredientItem.appendChild(ingredientTitle);
