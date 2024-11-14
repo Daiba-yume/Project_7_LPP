@@ -195,7 +195,7 @@ img.bannerImg {
   right: 50px;
   border: none;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 .searchIconIng {
@@ -209,7 +209,7 @@ img.bannerImg {
   right: 30px;
   border: none;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 /* Input Appliance*/
@@ -224,7 +224,7 @@ img.bannerImg {
   right: 50px;
   border: none;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 .searchIconAppl {
@@ -238,7 +238,7 @@ img.bannerImg {
   right: 30px;
   border: none;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 /* Input Ustensil*/
@@ -253,7 +253,7 @@ img.bannerImg {
   right: 50px;
   border: none;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 .searchIconUsten {
@@ -267,7 +267,7 @@ img.bannerImg {
   right: 30px;
   border: none;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 .dropdown-content ul {
@@ -405,12 +405,12 @@ img.bannerImg {
 }
 
 .description_title {
-  color: #4a4a4a;
+  color: #7a7a7a;
   font-size: 12px;
 }
 
 .ingredients_title {
-  color: #4a4a4a;
+  color: #7a7a7a;
   margin-top: 30px;
   margin-bottom: 15px;
   font-size: 12px;
@@ -424,7 +424,7 @@ img.bannerImg {
 .ingredient_text {
   position: relative;
   bottom: 18px;
-  color: #4a4a4a;
+  color: #7a7a7a;
 }
 
 .recipe_ingredients_list {
