@@ -9,8 +9,8 @@ export function inputTag(inputId, dropdownListId, eraseIconClass) {
   }
   // Ajoute un écouteur d'événements pour détecter les saisies dans le champ input
   inputElement.addEventListener("input", function (e) {
-    // Convertit la valeur saisie par l'utilisateur en minuscules pour une comparaison insensible à la casse
-    const inputValue = e.target.value.toLowerCase();
+    // Convertit la valeur saisie par l'utilisateur en minuscules et évite les caractères spéciaux
+    const inputValue = e.target.value.trim().toLowerCase();
     // Sélectionne tous les éléments de la liste déroulante correspondant à l'ID passé en paramètre
     const dropdownItems = document.querySelectorAll(`#${dropdownListId} li`);
     // Parcourt chaque élément de la liste déroulante
