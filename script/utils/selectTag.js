@@ -45,24 +45,30 @@ export function selectTag(item, key) {
     // Réafficher l'élément dans le dropdown si nécessaire
     switch (key) {
       case "ingredient":
-        const indexIng = selectedTagsIng.indexOf(item);
-        if (indexIng > -1) {
-          // only splice array when item is found
-          selectedTagsIng.splice(indexIng, 1); // 2nd parameter means remove one item only
+        {
+          const indexIng = selectedTagsIng.indexOf(item);
+          if (indexIng > -1) {
+            // only splice array when item is found
+            selectedTagsIng.splice(indexIng, 1); // 2nd parameter means remove one item only
+          }
         }
         break;
       case "appliance":
-        const indexApp = selectedTagsApp.indexOf(item);
-        if (indexApp > -1) {
-          // only splice array when item is found
-          selectedTagsApp.splice(indexApp, 1); // 2nd parameter means remove one item only
+        {
+          const indexApp = selectedTagsApp.indexOf(item);
+          if (indexApp > -1) {
+            // only splice array when item is found
+            selectedTagsApp.splice(indexApp, 1); // 2nd parameter means remove one item only
+          }
         }
         break;
       case "ustensil":
-        const indexUst = selectedTagsUst.indexOf(item);
-        if (indexUst > -1) {
-          // only splice array when item is found
-          selectedTagsUst.splice(indexUst, 1); // 2nd parameter means remove one item only
+        {
+          const indexUst = selectedTagsUst.indexOf(item);
+          if (indexUst > -1) {
+            // only splice array when item is found
+            selectedTagsUst.splice(indexUst, 1); // 2nd parameter means remove one item only
+          }
         }
         break;
     }
