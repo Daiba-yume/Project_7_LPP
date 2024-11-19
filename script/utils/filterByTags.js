@@ -1,7 +1,7 @@
 "use strict";
 // On cherche un tag dans la liste des ingrédients
 function searchInIng(listRecipes, selectedTag) {
-  selectedTag = selectedTag.toLowerCase();
+  selectedTag = selectedTag.trim().toLowerCase().replace(/[<>]/g, ""); //évite les espaces, minuscule et nettoie les tags;
   const results = listRecipes.filter((recipe) =>
     // Vérifie si un tag d'ingrédient correspond
     recipe.ingredients.some((ingredient) =>
@@ -13,7 +13,7 @@ function searchInIng(listRecipes, selectedTag) {
 
 // On cherche un tag dans la liste des appareils
 function searchInApp(listRecipes, selectedTag) {
-  selectedTag = selectedTag.toLowerCase();
+  selectedTag = selectedTag.trim().toLowerCase().replace(/[<>]/g, ""); //évite les espaces, minuscule et nettoie les tags;
   const results = listRecipes.filter((recipe) =>
     // Vérifie si un tag d'appareil correspond
     recipe.appliance.toLowerCase().includes(selectedTag)
@@ -23,7 +23,7 @@ function searchInApp(listRecipes, selectedTag) {
 
 // On cherche un tag dans la liste des ustensiles
 function searchInUst(listRecipes, selectedTag) {
-  selectedTag = selectedTag.toLowerCase();
+  selectedTag = selectedTag.trim().toLowerCase().replace(/[<>]/g, ""); //évite les espaces, minuscule et nettoie les tags;
   const results = listRecipes.filter((recipe) =>
     // Vérifie si un tag d'ustensile correspond
     recipe.ustensils.some((ustensil) =>

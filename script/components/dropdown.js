@@ -11,12 +11,14 @@ export function getUniqueItems(key) {
     if (key === "ingredients") {
       // Ajoute chaque ingrédient unique au Set avec la première lettre en Lower
       recipe.ingredients.forEach((ingredientObj) =>
-        items.add(ingredientObj.ingredient.toLowerCase())
+        items.add(ingredientObj.ingredient.trim().toLowerCase())
       );
     } else if (key === "appliance") {
-      items.add(recipe.appliance.toLowerCase());
+      items.add(recipe.appliance.trim().toLowerCase());
     } else if (key === "ustensils") {
-      recipe.ustensils.forEach((ustensil) => items.add(ustensil.toLowerCase()));
+      recipe.ustensils.forEach((ustensil) =>
+        items.add(ustensil.trim().toLowerCase())
+      );
     }
   });
   // Upper sur la première lettre et retourne un tableau
@@ -30,7 +32,7 @@ export function populateDropdown(dropdownElement, items, key) {
 
   items.forEach((item) => {
     const li = document.createElement("li");
-    li.textContent = item;
+    li.textContent = item.replace(/[<>]/g, ""); // Évite toute insertion de balises HTML;
 
     // Gère le clic sur l'élément de liste
     li.onclick = (e) => {

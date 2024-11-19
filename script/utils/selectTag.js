@@ -9,7 +9,9 @@ export function selectTag(item, key) {
 
   // Crée un tag sélectionné
   const selectedItem = document.createElement("span");
-  selectedItem.textContent = item; // Définit le texte du tag
+  // Nettoye le texte pour éviter les caractères spéciaux
+  const safeText = item.replace(/[<>]/g, "");
+  selectedItem.textContent = safeText; // Définit le texte du tag
   selectedItem.classList.add("selected-tag");
 
   switch (key) {
