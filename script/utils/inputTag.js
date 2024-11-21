@@ -7,10 +7,22 @@ export function inputTag(inputId, dropdownListId, eraseIconClass) {
     console.error(`Input avec l'ID ${inputId} introuvable.`);
     return; // Arrête l'exécution si l'élément n'est pas trouvé
   }
+
   // Ajoute un écouteur d'événements pour détecter les saisies dans le champ input
   inputElement.addEventListener("input", function (e) {
+    // Vérifie si la valeur contient des caractères spéciaux
+    const specialRegex = /[<>!@#$%^&*()_+={}\[\]:;"'\\|,./?`~]/g;
+    if (specialRegex.test(e.target.value)) {
+      console.log(
+        "Les caractères spéciaux comme '<', '>', '!', '@', etc. ne sont pas autorisés."
+      );
+    }
+
     // Convertit la valeur saisie par l'utilisateur en minuscules et évite les caractères spéciaux
-    const inputValue = e.target.value.trim().toLowerCase().replace(/[<>]/g, "");
+    const inputValue = e.target.value
+      .trim()
+      .toLowerCase()
+      .replace(specialRegex, "");
     // Sélectionne tous les éléments de la liste déroulante correspondant à l'ID passé en paramètre
     const dropdownItems = document.querySelectorAll(`#${dropdownListId} li`);
     // Parcourt chaque élément de la liste déroulante

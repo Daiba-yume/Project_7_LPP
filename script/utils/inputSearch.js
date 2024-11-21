@@ -11,18 +11,29 @@ import {
 
 // Fonction principale qui gère la recherche et l'affichage des recettes
 export const filteredRecipes = (recipes, searchBar) => {
+  // Regex pour détecter les caractères spéciaux
+  const specialRegex = /[<>!@#$%^&*()_+={}\[\]:;"'\\|,./?`~]/g;
   // KEYUP Exécute la recherche à chaque touche relâchée
   searchBar.addEventListener("keyup", (e) => {
     const query = e.target.value.toLowerCase(); // Valeur de la recherche en minuscule
+    // Vérifie si la valeur contient des caractères spéciaux
+    if (specialRegex.test(query)) {
+      console.log(
+        "Les caractères spéciaux comme '<', '>', '!', '@', etc. ne sont pas autorisés."
+      );
+    }
+    // Supprime les caractères spéciaux avant le traitement
+    const sanitizedQuery = query.replace(specialRegex, "");
+
     // cache ou montre le button d'effacement
-    if (query.length === 0) {
+    if (sanitizedQuery.length === 0) {
       document.getElementById("buttonErase").style.display = "none";
     } else {
       document.getElementById("buttonErase").style.display = "block";
     }
     // si l'user a saisi au moins 3 caractères
-    if (query.length >= 3) {
-      let listRecipes = filterRecipes(recipes, query); // Appelle la fonction de filtrage
+    if (sanitizedQuery.length >= 3) {
+      let listRecipes = filterRecipes(recipes, sanitizedQuery); // Appelle la fonction de filtrage
       listRecipes = searchByTags(
         listRecipes,
         selectedTagsIng,
