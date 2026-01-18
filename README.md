@@ -50,8 +50,4 @@ Daïba Yume :purple_heart:
 
 [Les Petits Plats](https://lespetitsplats-steel.vercel.app/)
 
----
-
-- Version native : https://github.com/Daiba-yume/Project_7_LPP/tree/native
-
 
