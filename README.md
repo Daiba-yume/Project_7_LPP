@@ -33,7 +33,6 @@ Concevoir la partie visuelle et fonctionnelle d’un site de recettes (similaire
 
 1. Cloner le repo `https://github.com/Daiba-yume/Project_7_LPP.git`
 2. Installer les dépendances : `npm install`
-3. Lancer le projet : `npm run dev`
 
 ---
 
