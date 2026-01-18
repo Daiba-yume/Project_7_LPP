@@ -48,6 +48,10 @@ Daïba Yume :purple_heart:
 
 ## 💮 Demo
 
-https://lespetitsplats-steel.vercel.app/
+[Les Petits Plats](https://lespetitsplats-steel.vercel.app/)
+
+---
 
 - Version native : https://github.com/Daiba-yume/Project_7_LPP/tree/native
+
+
