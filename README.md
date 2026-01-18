@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 
 <p align="center">
-  <img src="./assets/logo.png" alt="Aperçu du projet" width="200" />
+  <img src="./assets/logoLPP.png" alt="Aperçu du projet" width="200" />
 </p>
 
 # Les Petits Plats - Projet OpenClassrooms
